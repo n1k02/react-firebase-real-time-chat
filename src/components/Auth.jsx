@@ -1,24 +1,24 @@
 import {auth, provider} from '../firebase-config'
 import {signInWithPopup} from 'firebase/auth'
+import '../styles/Auth.scss'
+import {store} from "../store/index.js";
+import {observer} from "mobx-react";
 
-import Cookies from "universal-cookie/lib";
 
-const cookies = new Cookies();
-
-export const Auth = (props) => {
-    const {setIsAuth} = props
+export const Auth = observer(() => {
+    const {authCookie} = store;
     const signInWithGoogle = async () => {
         try {
             const result = await signInWithPopup(auth, provider); // console.log(result)
-            cookies.set('auth-token', result.user.refreshToken)
-            setIsAuth(true)
+            await authCookie.set(result.user.refreshToken)
         } catch (err) {
             console.error(err);
         }
-
     }
     return <div className={'auth'}>
-        <p>Sign In With Google To Continue</p>
-        <button onClick={signInWithGoogle}> Sign In With Google</button>
+        <div className={'auth__card'}>
+            <div className={'auth__title'}>Sign In With Google To Continue</div>
+            <button className={'auth__btn'} onClick={signInWithGoogle}> Sign In With Google</button>
+        </div>
     </div>
-}
+})

@@ -1,31 +1,42 @@
-import './App.css'
+import './styles/App.scss'
 import {Auth} from "./components/Auth.jsx";
-import {useRef, useState} from "react";
+import {useRef} from "react";
 
-import Cookies from "universal-cookie/lib";
+import RoomsList from "./components/RoomsList.jsx";
+import {store} from "./store/index.js";
+import {observer} from "mobx-react";
 import Chat from "./components/Chat.jsx";
+import CleanChat from "./components/CleanChat.jsx";
+import Navbar from "./components/Navbar.jsx";
 
-const cookies = new Cookies();
+const App = observer(() => {
+    const {isAuth, activeRoomId} = store;
 
-function App() {
-    const [isAuth, setIsAuth] = useState(cookies.get('auth-token'))
-    const [room, setRoom] = useState('')
     const roomInputRef = useRef(null)
 
     if (!isAuth) {
-        return <Auth setIsAuth={setIsAuth}/>
+        return <Auth/>
     }
     return (
-        <div>
-            {room ? <Chat room={room}/>
-                : <div className={'room'}>
-                    <label>Enter Room Name:</label>
-                    <input type="text" ref={roomInputRef}/>
-                    <button onClick={() => setRoom(roomInputRef.current.value)}>Enter Chat</button>
-                </div>
-            }
+        <div className={'App'}>
+            <Navbar/>
+            <div className={'App__row row'}>
+                <RoomsList/>
+                {activeRoomId ? <Chat/> : <CleanChat/>}
+            </div>
         </div>
-    )
-}
 
-export default App
+        // <div>
+        //     {room ? <Chat room={room}/>
+        //         : <div className={'room'}>
+        //             <label>Enter Room Name:</label>
+        //             <input type="text" ref={roomInputRef}/>
+        //             <button onClick={() => setRoom(roomInputRef.current.value)}>Enter Chat</button>
+        //         </div>
+        //     }
+        // </div>
+    )
+});
+
+export default App;
+

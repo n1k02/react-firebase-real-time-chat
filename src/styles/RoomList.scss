@@ -1,0 +1,24 @@
+.rooms-list{
+  flex: 1 0 30%;
+  backdrop-filter: blur(30px) saturate(100%);
+  background-color: rgba(0,0,0,.6);
+  padding-top: 20px;
+  padding-bottom: 80px;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+  &__title {
+    padding: 20px 10px;
+  }
+  &__add-button {
+    bottom: 20px;
+    color: var(--color-accent);
+    position: absolute;
+    padding: 10px;
+    border-radius: 20px;
+    width: 100%;
+    background: none;
+    border:3px solid var(--color-accent);
+    font-weight: 600;
+  }
+}

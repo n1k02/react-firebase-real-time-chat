@@ -1,0 +1,26 @@
+.auth {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+
+  &__card {
+    background: var(--color-dark);
+    padding: 80px 50px;
+    border-radius: 5px;
+  }
+  &__title {
+    font-size: 1.2rem;
+  }
+  &__btn {
+    border:none;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 15px;
+    background: var(--color-accent);
+    font-weight: bold;
+    width: 100%;
+  }
+}

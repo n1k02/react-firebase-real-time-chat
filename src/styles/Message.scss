@@ -1,0 +1,50 @@
+.message {
+  display: flex;
+  margin-top: 20px;
+  &__img {
+    width: 40px;
+    height: 40px;
+  }
+
+  &__content-block {
+    background: rgba(0, 0, 0, 0.3);
+    margin-left: 20px;
+    border-radius: 10px;
+    padding: 15px;
+  }
+
+  &__user {
+    color: cyan;
+  }
+
+  &__text {
+    padding-top: 10px;
+  }
+
+  &__date {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: gray;
+  }
+
+  // my messages
+  &.me &__img {
+    order: 3;
+  }
+
+  &.me &__content-block {
+    order: 2;
+    background: rgba(0, 0, 0, 0.3);
+    margin-left: 0px;
+    margin-right: 20px;
+  }
+
+  &.me &__date {
+    order: 1;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+}

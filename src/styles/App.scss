@@ -1,0 +1,51 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+.circle-image {
+  border-radius: 50%;
+  overflow: hidden;
+
+}
+#root {
+  --color-deep-dark: #181A1C;
+  --color-dark: #1C1E1F;
+  --color-accent: #e66335;
+  --color-border-gray: #333;
+  font-family: sans-serif;
+  height: 100%;
+  background: var(--color-deep-dark);
+  font-size: 14px;
+  color: #fff;
+  padding-bottom: 70px;
+  h1{
+    font-size: 32px;
+  }
+  h2{
+    font-size: 28px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+}
+
+
+.App {
+  background:#181A1C url('../assets/react.svg') 50% 35px /  contain no-repeat;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  &__row {
+    display: flex;
+    height: 100%;
+  }
+}

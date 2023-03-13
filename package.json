@@ -10,8 +10,12 @@
   },
   "dependencies": {
     "firebase": "^9.17.2",
+    "mobx": "^6.8.0",
+    "mobx-cookie": "^4.0.5",
+    "mobx-react": "^7.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sass": "^1.59.2",
     "universal-cookie": "^4.0.4"
   },
   "devDependencies": {

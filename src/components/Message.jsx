@@ -5,7 +5,7 @@ import '../styles/Message.scss'
 
 const Message = (props) => {
     const {userData} = store
-    const date = new Date(props.message.createdAt)
+    const date = new Date(props.message.date)
     return (
         <div className={`message ${props.message.user === userData.currentUser.displayName ? 'me' : ''}`}>
             <div className={'message__img circle-image'}>

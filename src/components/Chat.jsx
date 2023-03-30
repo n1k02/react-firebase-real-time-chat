@@ -23,7 +23,8 @@ const Chat = observer(() => {
         const date = new Date();
         await addDoc(messagesRef, {
             text: newMessage,
-            createdAt:String(new Date(date.valueOf() + date.getTimezoneOffset())),
+            date: String(new Date(date.valueOf() + date.getTimezoneOffset())),
+            createdAt: String(new Date().toISOString()),
             user: auth.currentUser.displayName,
             userPhotoURL: auth.currentUser?.photoURL, // правильнее было-бы создать отдельную таблицу пользователей в которой пользователь создается при входе и засунуть туда картинку, но мне лень
             room: currentRoom.name
